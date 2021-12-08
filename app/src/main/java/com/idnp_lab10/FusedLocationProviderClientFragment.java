@@ -108,6 +108,7 @@ public class FusedLocationProviderClientFragment extends Fragment {
         locationRequest = LocationRequest.create();
         locationRequest.setInterval(4000);
         locationRequest.setFastestInterval(2000);
+        locationRequest.setSmallestDisplacement(100);
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
         btnStart.setOnClickListener(new View.OnClickListener() {

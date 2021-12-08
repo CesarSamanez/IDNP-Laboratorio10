@@ -95,7 +95,7 @@ public class LocationManagerFragment extends Fragment implements LocationListene
     private void getLocation() {
         try {
             locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5, 1, this);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 100, this);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -109,7 +109,8 @@ public class LocationManagerFragment extends Fragment implements LocationListene
         try {
             Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
             List<Address> addressList = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-            String address = addressList.get(0).getAddressLine(0);
+            String address = "Longitud: " + location.getLongitude() +
+                    " Latitud: " + location.getLatitude();
 
             Log.i("FragmentLocationManager", "Executando...");
             String auxText = textViewinformation.getText().toString();
